@@ -9,8 +9,10 @@ Plugin 'tpope/vim-rails'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'editorconfig/editorconfig-vim'
-
-" Plugin 'vim-ruby/vim-ruby'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'geoffharcourt/vim-matchit'
 call vundle#end()
 
 " The Silver Searcher
@@ -23,11 +25,15 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Set tabs as 2 spaces
 filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
 syntax on
+
+" Show line numbers
 set number
 
 :nmap ; :
@@ -42,3 +48,9 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 :highlight StatusLineNC cterm=none gui=none
 
 set clipboard=unnamed
+
+set tags=./tags;
+
+" NERDTree shortcuts
+nmap ,n :NERDTreeFind<CR>
+nmap ,m :NERDTreeToggle<CR>
